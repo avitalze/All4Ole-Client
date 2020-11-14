@@ -4,6 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.GsonBuilder
@@ -37,10 +40,17 @@ class MainActivity :AppCompatActivity () {
 
     //variables
     private lateinit var currUser: User
-//    private var username: String = "";
-//    private var password: String = "";
-      private var checkGit: String = "";
+    private var insertedUsername: String = "";
+    private var insertedPassword: String = "";
+    private var checkGit: String = "";
 
+    // israel
+    private lateinit var loginButton: Button
+    private lateinit var registerButton: Button
+    private lateinit var usernameEditText: EditText
+    private lateinit var passwordEditText:EditText
+    private var username = ""
+    private var password = ""
     private var urlAddress: String? = null  // for sending json
 
 
@@ -48,6 +58,9 @@ class MainActivity :AppCompatActivity () {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        loginButton = findViewById(R.id.loginBtn)
+        registerButton = findViewById(R.id.registerBtn)
 
         btnNext.setOnClickListener{
             val intent=Intent(this,LoginCheck::class.java);
@@ -107,6 +120,21 @@ class MainActivity :AppCompatActivity () {
 
     }
 
+//    israel old !
+    fun loginOnClick(view: View){
+        usernameEditText = findViewById(R.id.usernameEditText)
+        username = usernameEditText.text.toString()
+        passwordEditText = findViewById(R.id.passwordEditText)
+        password = passwordEditText.text.toString()
+
+        // TODO send username, password to server, if true go to homepage, else alert
+    }
+
+    //    israel old !
+    fun registerOnClick(view: View){
+        val intent = Intent(this, RegistrationScreen::class.java)
+        startActivity(intent)
+    }
 
     // POST login
 //    fun clickOnLogInButton() {
