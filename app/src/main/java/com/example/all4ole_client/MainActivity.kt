@@ -39,6 +39,7 @@ class MainActivity :AppCompatActivity () {
     private lateinit var currUser: User
 //    private var username: String = "";
 //    private var password: String = "";
+      private var checkGit: String = "";
 
     private var urlAddress: String? = null  // for sending json
 

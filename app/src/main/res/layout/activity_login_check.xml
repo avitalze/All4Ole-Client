@@ -13,9 +13,8 @@
         android:text="login check"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopof="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:id="@+id/logincCheck">
-
+<!--        app:layout_constraintTop_toTopof="parent"-->
     </TextView>
 </androidx.constraintlayout.widget.ConstraintLayout>
