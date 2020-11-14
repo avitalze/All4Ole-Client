@@ -6,77 +6,76 @@
     android:layout_height="match_parent"
     tools:context=".LoginCheck">
 
-<!--    <com.google.android.material.textfield.TextInputLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        -->
-<!--        android:layout_height="wrap_content"-->
-<!--&lt;!&ndash;        &ndash;&gt;-->
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="login check"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        android:id="@+id/logincCheck">-->
-<!--&lt;!&ndash;        app:layout_constraintTop_toTopof="parent"&ndash;&gt;-->
-<!--    </TextView>-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Login"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tvUseName"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="26dp"
+        android:textColor="#000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"></TextView>
 
-<!--    <android.support.v7.widget.LinearLayoutCompat-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:orientation="vertical">-->
-<!--        <android.support.v7.widget.AppCompatImageView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="center_horizontal"-->
-<!--            android:layout_marginTop="40dp"-->
-<!--            android:src="@drawable/logo" />-->
-<!--        <android.support.design.widget.TextInputLayout-->
-<!--            android:id="@+id/textInputLayoutEmail"-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvUseName"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="UserName"
+        android:layout_height="wrap_content">
+
+<!--        tools:layout_editor_absoluteX="224dp"-->
+<!--        tools:layout_editor_absoluteY="202dp">-->
+        <EditText
+            android:id="@+id/edUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="UserName" />
+<!--        <com.google.android.material.textfield.TextInputEditText-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="40dp">-->
-<!--            <android.support.design.widget.TextInputEditText-->
-<!--                android:id="@+id/textInputEditTextEmail"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:hint="@string/hint_email"-->
-<!--                android:inputType="text"-->
-<!--                android:maxLines="1"-->
-<!--                android:textColor="@android:color/white" />-->
-<!--        </android.support.design.widget.TextInputLayout>-->
-<!--        <android.support.design.widget.TextInputLayout-->
-<!--            android:id="@+id/textInputLayoutPassword"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="20dp">-->
-<!--            <android.support.design.widget.TextInputEditText-->
-<!--                android:id="@+id/textInputEditTextPassword"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:hint="@string/hint_password"-->
-<!--                android:inputType="textPassword"-->
-<!--                android:maxLines="1"-->
-<!--                android:textColor="@android:color/white" />-->
-<!--        </android.support.design.widget.TextInputLayout>-->
-<!--        <android.support.v7.widget.AppCompatButton-->
-<!--            android:id="@+id/appCompatButtonLogin"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="40dp"-->
-<!--            android:background="@color/colorTextHint"-->
-<!--            android:text="@string/text_login" />-->
-<!--        <android.support.v7.widget.AppCompatTextView-->
-<!--            android:id="@+id/textViewLinkRegister"-->
-<!--            android:layout_width="fill_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="30dp"-->
-<!--            android:gravity="center"-->
-<!--            android:text="@string/text_not_member"-->
-<!--            android:textSize="16dp" />-->
-<!--    </android.support.v7.widget.LinearLayoutCompat>-->
-<!--</android.support.v4.widget.NestedScrollView>-->
-<!--    -->
-        
+<!--            android:hint="hint" />-->
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvPassword"
+        android:layout_width="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvUseName"
+        android:hint="Password"
+        android:layout_height="wrap_content">
+
+        <!--        tools:layout_editor_absoluteX="224dp"-->
+        <!--        tools:layout_editor_absoluteY="202dp">-->
+        <EditText
+            android:id="@+id/edPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password" />
+        <!--        <com.google.android.material.textfield.TextInputEditText-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:hint="hint" />-->
+    </com.google.android.material.textfield.TextInputLayout>
+    
+    <Button
+        android:layout_width="match_parent"
+        android:text="Login"
+        app:layout_constraintTop_toBottomOf="@+id/tvPassword"
+        android:layout_margin="30dp"
+        android:textColor="#fff"
+        android:background="@color/colorAccent"
+        android:layout_height="wrap_content"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
