@@ -3,6 +3,7 @@ package com.example.all4ole_client
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.Button
@@ -10,7 +11,10 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.GsonBuilder
+import kotlinx.android.synthetic.main.activity_login_check.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.edPassword
+import kotlinx.android.synthetic.main.activity_main.edUserName
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -59,8 +63,8 @@ class MainActivity :AppCompatActivity () {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        loginButton = findViewById(R.id.loginBtn)
-        registerButton = findViewById(R.id.registerBtn)
+        loginButton = findViewById(R.id.btnLogin)
+//        registerButton = findViewById(R.id.tvRegister) // registerBtn
 
         btnNext.setOnClickListener{
             val intent=Intent(this,LoginCheck::class.java);
@@ -120,14 +124,26 @@ class MainActivity :AppCompatActivity () {
 
     }
 
-//    israel old !
-    fun loginOnClick(view: View){
-        usernameEditText = findViewById(R.id.usernameEditText)
-        username = usernameEditText.text.toString()
-        passwordEditText = findViewById(R.id.passwordEditText)
-        password = passwordEditText.text.toString()
 
-        // TODO send username, password to server, if true go to homepage, else alert
+    fun loginOnClick(view: View){
+        usernameEditText = findViewById(R.id.edUserName)
+        username = usernameEditText.text.toString()
+        passwordEditText = findViewById(R.id.edPassword)
+        password = passwordEditText.text.toString()
+//            if(edUserName.text.trim().isNotEmpty() || edPassword.text.trim().isNotEmpty()){
+        if(edUserName.text.isNotEmpty() && edPassword.text.isNotEmpty()){
+            // do
+            Toast.makeText(this,"input is ok",Toast.LENGTH_LONG).show()
+            println("-------------------curr user name is: "+username+"-------------------" )
+            println("-------------------curr password is: "+password+"---------------------" )
+            Log.d("myTag", "This is my message");
+        }
+        // empty userName or password
+        else{
+            Toast.makeText(this,"input not full",Toast.LENGTH_LONG).show()
+        }
+
+    // TODO send username, password to server, if true go to homepage, else alert
     }
 
     //    israel old !
@@ -135,6 +151,8 @@ class MainActivity :AppCompatActivity () {
         val intent = Intent(this, RegistrationScreen::class.java)
         startActivity(intent)
     }
+
+
 
     // POST login
 //    fun clickOnLogInButton() {
