@@ -14,9 +14,21 @@
 <!--            android:layout_height="62dp"-->
 <!--            android:text="We want you to get the most out of the app, please fill in the following details about you." ></TextView>-->
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Register"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textUserName"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="26dp"
+        android:textColor="#000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"></TextView>
+
      <!--userName-->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textUseName"
+        android:id="@+id/textUserName"
         android:layout_width="match_parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="30dp"
@@ -27,54 +39,75 @@
         android:hint="UserName"
         android:layout_height="wrap_content">
 
-        <!--        tools:layout_editor_absoluteX="224dp"-->
-        <!--        tools:layout_editor_absoluteY="202dp">-->
         <EditText
             android:id="@+id/editUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="UserName" />
-        <!--        <com.google.android.material.textfield.TextInputEditText-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:hint="hint" />-->
     </com.google.android.material.textfield.TextInputLayout>
 
 <!--    email-->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textEmail"
         android:layout_width="match_parent"
-        app:layout_constraintTop_toBottomOf="@+id/textUseName"
+        app:layout_constraintTop_toBottomOf="@+id/textUserName"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:hint="UserName"
+        android:hint="Email"
         android:layout_height="wrap_content">
 
         <EditText
             android:id="@+id/editEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="email" />
+            android:hint="Email" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <!--    password -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textPassword"
         android:layout_width="match_parent"
-        app:layout_constraintTop_toBottomOf="@+id/textUseName"
+        app:layout_constraintTop_toBottomOf="@+id/textEmail"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:hint="UserName"
+        android:hint="Password"
         android:layout_height="wrap_content">
 
         <EditText
             android:id="@+id/editPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:hint="Password" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:text="Register"
+        android:onClick="btnRegisterOnClick"
+        app:layout_constraintTop_toBottomOf="@+id/textPassword"
+        android:layout_margin="30dp"
+        android:textColor="#fff"
+        android:background="@color/colorAccent"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:id="@+id/tvLogin"
+        android:onClick="loginOnClick"
+        android:layout_width="wrap_content"
+        android:text="Login"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content"></TextView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

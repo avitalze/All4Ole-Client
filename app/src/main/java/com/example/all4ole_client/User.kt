@@ -36,4 +36,21 @@ class User {
 
         println("$userName: $password created")
     }
+
+    // empty 
+    constructor(){
+        this.userName = ""
+        this.password = ""
+        this.firstName= ""
+        this.lastName =""
+        this.cell= ""
+        this.hobbies =0
+        this.help =0
+        this.email =""
+        this.originCountry =""
+        this.language =""
+        this.residenttialArea =""
+        this.maritalStatus =0
+        this.hasLittleChildren=0
+    }
 }

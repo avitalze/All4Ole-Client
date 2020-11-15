@@ -146,7 +146,7 @@ class MainActivity :AppCompatActivity () {
     // TODO send username, password to server, if true go to homepage, else alert
     }
 
-    //    israel old !
+    //   move to registration screen
     fun registerOnClick(view: View){
         val intent = Intent(this, RegistrationScreen::class.java)
         startActivity(intent)
