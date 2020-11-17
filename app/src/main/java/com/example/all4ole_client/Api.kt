@@ -10,14 +10,14 @@ interface Api {
     // GET  of PeopleLikeMe
     // example :     /user/people?username=”yosi"
     @GET("/user/people")
-    fun peapleLikeMe(@Query("userName") userName:String): Call<ResponseBody>
+    fun peopleLikeMe(@Query("userName") userName:String): Call<ResponseBody>
 
 
     // POST of login
     // exmple: /user/login
     @Headers("Content-Type: application/json")
-    @POST("/user/login ") //{password}
-    fun logIn(@Body userDitels: RequestBody): Call<ResponseBody>
+    @POST("user/login") //{password}
+    fun logIn(@Body userDetails: RequestBody): Call<ResponseBody>
     //     fun ourMethodName we will call ( value we get : value we return )
 
 
@@ -25,6 +25,5 @@ interface Api {
     //   exmple: /user/register
 
     // do like video with sending object of User !!! (vidao : 2:13)
-
 
 }

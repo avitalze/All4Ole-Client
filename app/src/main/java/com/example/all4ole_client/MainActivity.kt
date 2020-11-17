@@ -10,7 +10,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.google.gson.JsonObject
 import kotlinx.android.synthetic.main.activity_login_check.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.edPassword
@@ -55,7 +57,7 @@ class MainActivity :AppCompatActivity () {
     private lateinit var passwordEditText:EditText
     private var username = ""
     private var password = ""
-    private var urlAddress: String? = null  // for sending json
+    private var urlAddress: String? = "http://10.0.2.2:5001"  // for sending json
 
 
 
@@ -75,16 +77,15 @@ class MainActivity :AppCompatActivity () {
 
     // log in - post
     private fun logIn(user_name: String, password: String) {
-        val json = "{\"username\": ${currUser.userName},\n \"password\": ${currUser.password},\n}"
+        val json = "{\n \"user_name\": \"${user_name}\",\n \"password\": \"${password}\"\n}"
         val rb: RequestBody = RequestBody.create(MediaType.parse("application/json"), json)
-        val gson = GsonBuilder().setLenient().create();
+        val gson = GsonBuilder().setLenient().create()
         var currUserString=""
         //Create the retrofit instance to issue with the network requests:
         try {
             val retrofit = Retrofit.Builder()
                 .baseUrl(urlAddress.toString())
                 .addConverterFactory(GsonConverterFactory.create(gson)).build();
-
 
             //Defining the api for sending by the request
             val api = retrofit.create(Api::class.java)
@@ -98,20 +99,26 @@ class MainActivity :AppCompatActivity () {
                         if (response.message() == "OK" || response.isSuccessful()) { // if ok we get all user ditels -how to get
                             // save details of curr user
                             println("Successfully posted - user logIn to app")
-                            currUserString =response.body().toString(); // ?
-                            response.body().use { model ->  } // check !
-
-                            println(json)
+                            //TODO json from server to User instance
+//                           JsonObject post = new JsonObject().get(response.body().toString()).getAsJsonObject();
+//                            var a = Gson().toJson(response.body().toString()) // ?
+//                            println(a)
+                            val stringResponse = response.body()?.string()
+                            print(stringResponse.toString())
+                            //response.body().use { model ->  } // check !
+                            //println(json)
                         } else {
+                            println("sdfghjkjhgfdsdfghjkjhgfdsdfghjklkjhgfdfghjkjhgfdfghasfsdfdsf")
+                            println(response.body().toString())
                             MainActivity.toastMessage(
                                 applicationContext,
                                 "userName or password is incorrect"
                             )
                         }
-
                     }
 
                     override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                        println(t.message.toString())
                         MainActivity.toastMessage(applicationContext, "Error in connection with server, go back to menu");
                     }
                 })
@@ -119,9 +126,6 @@ class MainActivity :AppCompatActivity () {
         } catch (e: Exception) {
             MainActivity.toastMessage(applicationContext, "Invalid url - Go back to menu");
         }
-
-
-
     }
 
 
@@ -142,7 +146,7 @@ class MainActivity :AppCompatActivity () {
         else{
             Toast.makeText(this,"input not full",Toast.LENGTH_LONG).show()
         }
-
+        logIn(username, password)
     // TODO send username, password to server, if true go to homepage, else alert
     }
 
