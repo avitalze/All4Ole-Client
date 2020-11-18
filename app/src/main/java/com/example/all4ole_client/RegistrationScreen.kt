@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_registration_screen.*
 
@@ -55,6 +56,15 @@ class RegistrationScreen : AppCompatActivity() {
             println("-------------------curr user name is: "+userToeRegister.userName+"-------------------" )
             println("-------------------curr password is: "+userToeRegister.password+"---------------------" )
             println("-------------------curr password is: "+userToeRegister.email+"---------------------" )
+
+            // todo create user from all the fields
+
+            // todo takes the user and make it a json to send to the server
+                //val outputJson: String = Gson().toJson(myClass)
+
+            // todo send to the server and go to home page
+
+
         }
         // empty userName or password
         else{

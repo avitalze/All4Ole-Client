@@ -3,6 +3,7 @@ package com.example.all4ole_client
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.provider.AlarmClock
 import android.util.Log
 import android.view.Gravity
 import android.view.View
@@ -10,10 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.google.gson.JsonObject
-import kotlinx.android.synthetic.main.activity_login_check.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.edPassword
 import kotlinx.android.synthetic.main.activity_main.edUserName
@@ -96,24 +94,24 @@ class MainActivity :AppCompatActivity () {
                         call: Call<ResponseBody>,
                         response: Response<ResponseBody>
                     ) {
-                        if (response.message() == "OK" || response.isSuccessful()) { // if ok we get all user ditels -how to get
+                        if (response.message() == "OK" || response.isSuccessful) { // if ok we get all user ditels -how to get
                             // save details of curr user
                             println("Successfully posted - user logIn to app")
-                            //TODO json from server to User instance
-//                           JsonObject post = new JsonObject().get(response.body().toString()).getAsJsonObject();
-//                            var a = Gson().toJson(response.body().toString()) // ?
-//                            println(a)
-                            val stringResponse = response.body()?.string()
-                            print(stringResponse.toString())
-                            //response.body().use { model ->  } // check !
-                            //println(json)
+                           // val rate = Gson()
+                            val userFromServer: User = gson.fromJson(response.body()?.string(), User::class.java)
+                            println("trying to printttttt")
+                            println(userFromServer.email + ", " + userFromServer.userName + ", " + userFromServer.password)
+                            println("finished printttttt")
+                            if(userFromServer.password == password){
+                                currUser =  userFromServer
+                                val intent = Intent(this@MainActivity,HomePageScreen::class.java)
+                                intent.putExtra("currUser",currUser)
+                                intent.putExtra("theUrl",urlAddress)
+                                startActivity(intent)
+                                //todo go to home page
+                            }
                         } else {
-                            println("sdfghjkjhgfdsdfghjkjhgfdsdfghjklkjhgfdfghjkjhgfdfghasfsdfdsf")
-                            println(response.body().toString())
-                            MainActivity.toastMessage(
-                                applicationContext,
-                                "userName or password is incorrect"
-                            )
+                            toastMessage(applicationContext,"userName or password is incorrect")
                         }
                     }
 
