@@ -1,6 +1,15 @@
 <resources>
     <string name="app_name">All4Ole-Client</string>
-    <string name="people">people like me</string>
+    <string name="people">People like me</string>
+    <string name="help">Look for help</string>
+    <string name="help1">Sports</string>
+    <string name="help2">Cooking</string>
+    <string name="help3">Music</string>
+    <string name="help4">Reading</string>
+    <string name="help5">Art</string>
+    <string name="help6">Gaming</string>
+    <string name="help7">Hiking</string>
+    <string name="help8">Pets</string>
 
 
 </resources>

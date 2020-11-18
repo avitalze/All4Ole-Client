@@ -20,7 +20,7 @@ class RegistrationScreen : AppCompatActivity() {
     private lateinit var etRegEmail: EditText
 
 
-    private lateinit var userToeRegister: User
+  //  private lateinit var userToeRegister: User
 
 
 
@@ -28,7 +28,8 @@ class RegistrationScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration_screen)
 
-        userToeRegister= User()
+        //todo oooooooooooooooooooooooooooooooooo
+        //userToeRegister= User()
 
 
         registerButton = findViewById(R.id.btnRegister) // registerBtn
@@ -44,8 +45,8 @@ class RegistrationScreen : AppCompatActivity() {
 //editEmail
 
     fun btnRegisterOnClick(view: View){
-
-        userToeRegister.userName = etRegUsername.text.toString()
+        // todo ooooooooooooooooooooo
+     /*   userToeRegister.userName = etRegUsername.text.toString()
         userToeRegister.password = etRegPassword.text.toString()
         userToeRegister.email = etRegEmail.text.toString()
 
@@ -69,7 +70,7 @@ class RegistrationScreen : AppCompatActivity() {
         // empty userName or password
         else{
             Toast.makeText(this,"input not full", Toast.LENGTH_LONG).show()
-        }
+        }*/
 
 
     }

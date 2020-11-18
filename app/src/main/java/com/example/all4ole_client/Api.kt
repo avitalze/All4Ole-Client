@@ -12,6 +12,15 @@ interface Api {
     @GET("/user/people")
     fun peopleLikeMe(@Query("userName") userName:String): Call<ResponseBody>
 
+    // GET  of UserHelp
+    // example :     /user/help?username=”yosi"&help=4
+    @GET("/user/help")
+    fun lookForHelp(@Query("userName") userName:String, @Query("help") help:Int): Call<ResponseBody>
+
+    // GET  of findFriendsForHobbies
+    // example :     /user/hobby?username=”yosi"&hobby=4
+    @GET("/user/hobby")
+    fun findFriendsForHobbies(@Query("userName") userName:String, @Query("hobby") hobby:Int): Call<ResponseBody>
 
     // POST of login
     // exmple: /user/login
