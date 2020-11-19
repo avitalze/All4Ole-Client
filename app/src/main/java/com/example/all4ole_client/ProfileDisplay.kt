@@ -9,3 +9,6 @@ class ProfileDisplay : AppCompatActivity() {
         setContentView(R.layout.activity_profile_display)
     }
 }
+
+
+

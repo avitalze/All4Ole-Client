@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.all4ole_client">
+    package="com.example.all4ole_client" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -12,13 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
-        <activity android:name=".ProfileDisplay"></activity>
+        android:usesCleartextTraffic="true" >
+        <activity android:name=".ProfileDisplay" >
+        </activity>
         <activity android:name=".UsersDisplay" />
         <activity android:name=".HomePageScreen" />
         <activity android:name=".RegistrationScreen" />
         <activity android:name=".LoginCheck" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
