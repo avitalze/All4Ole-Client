@@ -1,5 +1,6 @@
 package com.example.all4ole_client
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -72,15 +73,19 @@ class HomePageScreen : AppCompatActivity() {
                         if (response.message() == "OK" || response.isSuccessful) { // if ok we get all user ditels -how to get
                             // save details of curr user
                             println("Successfully got users!!!")
-                            val users: List<User> = gson.fromJson(
+                            val users: ArrayList<User> = gson.fromJson(
                                 response.body()?.string(),
                                 Array<User>::class.java
-                            ).asList()
+                            ).asList().toArrayList()
                             println("trying to printttttt")
                             for (i in users) {
                                 println(i.email + ", " + i.userName + ", " + i.password)
                             }
                             println("finished printttttt")
+                            val intent = Intent(this@HomePageScreen,HomePageScreen::class.java)
+                            intent.putParcelableArrayListExtra("users",users)
+                            //   todo in users screen         .getParcelableArrayListExtra("users");
+                            startActivity(intent)
                             // todo show people in other screen
                         } else {
                             MainActivity.toastMessage(
@@ -105,7 +110,9 @@ class HomePageScreen : AppCompatActivity() {
         }
 
     }
-
+    fun <T> List<T>.toArrayList(): ArrayList<T>{
+        return ArrayList(this)
+    }
 
     fun btnPeopleOnClick(view: View){
        val gson = GsonBuilder().setLenient().create()
