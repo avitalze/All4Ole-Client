@@ -25,8 +25,6 @@ class HomePageScreen : AppCompatActivity() {
     private lateinit var helpBtns: ArrayList<CheckBox>
 
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_page_screen)

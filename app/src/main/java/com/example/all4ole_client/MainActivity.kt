@@ -55,8 +55,8 @@ class MainActivity :AppCompatActivity () {
     private lateinit var passwordEditText:EditText
     private var username = ""
     private var password = ""
-    private var urlAddress: String? = "http://10.0.2.2:5001"  // for sending json
-
+    //private var urlAddress: String? = "http://10.0.2.2:5001"  // for sending json
+    private var urlAddress: String? = "https://all4oleserver.azurewebsites.net" // for sending json
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
