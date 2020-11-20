@@ -1,5 +1,6 @@
 package com.example.all4ole_client
 
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 

@@ -56,7 +56,9 @@ class MainActivity :AppCompatActivity () {
     private var username = ""
     private var password = ""
     //private var urlAddress: String? = "http://10.0.2.2:5001"  // for sending json
-    private var urlAddress: String? = "https://all4oleserver.azurewebsites.net" // for sending json
+    //private var urlAddress: String? = "https://all4oleserver.azurewebsites.net" // for sending json
+    private var urlAddress: String? = "http://3.138.60.124:5001" // for sending json
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,11 +68,11 @@ class MainActivity :AppCompatActivity () {
         loginButton = findViewById(R.id.btnLogin)
 //        registerButton = findViewById(R.id.tvRegister) // registerBtn
 
-        btnNext.setOnClickListener{
+/*        btnNext.setOnClickListener{
             val intent=Intent(this,LoginCheck::class.java);
             intent.putExtra("data","test data")
             startActivity(intent)
-        }
+        }*/
     }
 
     // log in - post
@@ -104,11 +106,15 @@ class MainActivity :AppCompatActivity () {
                             println("finished printttttt")
                             if(userFromServer.password == password){
                                 currUser =  userFromServer
-                                val intent = Intent(this@MainActivity,HomePageScreen::class.java)
+                                /*val intent = Intent(this@MainActivity,HomePageScreen::class.java)
                                 intent.putExtra("currUser",currUser)
                                 intent.putExtra("theUrl",urlAddress)
+                                startActivity(intent)*/
+                                val intent = Intent(this@MainActivity,ProfileDisplay::class.java)
+                                intent.putExtra("currUser",currUser)
+                                intent.putExtra("isMyUser",false)
+                                intent.putExtra("theUrl",urlAddress)
                                 startActivity(intent)
-                                //todo go to home page
                             }
                         } else {
                             toastMessage(applicationContext,"userName or password is incorrect")

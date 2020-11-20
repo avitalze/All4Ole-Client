@@ -39,6 +39,7 @@ class HomePageScreen : AppCompatActivity() {
         }
         currUser = intent.getParcelableExtra("currUser")!!
 
+
     }
 
 
@@ -80,7 +81,7 @@ class HomePageScreen : AppCompatActivity() {
                                 println(i.email + ", " + i.userName + ", " + i.password)
                             }
                             println("finished printttttt")
-                            val intent = Intent(this@HomePageScreen,HomePageScreen::class.java)
+                            val intent = Intent(this@HomePageScreen,UsersDisplay::class.java)
                             intent.putParcelableArrayListExtra("users",users)
                             //   todo in users screen         .getParcelableArrayListExtra("users");
                             startActivity(intent)

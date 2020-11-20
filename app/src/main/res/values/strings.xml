@@ -10,6 +10,17 @@
     <string name="help6">Gaming</string>
     <string name="help7">Hiking</string>
     <string name="help8">Pets</string>
+    <string name="profileDisplay">My Profile</string>
+    <string name="otherProfileDisplay">%1$s %2$s</string>
+    <string name="phone">Phone: %1$s</string>
+    <string name="email">Email: %1$s</string>
+    <string name="country">Origin Country: %1$s</string>
+    <string name="language">Language: %1$s</string>
+    <string name="area">Residential Area: %1$s</string>
+    <string name="marital_status">Marital Status: %1$s</string>
+    <string name="children">%1$s little children</string>
+
+
 
 
 </resources>

@@ -1,10 +1,298 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileDisplay">
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/txtProfile"
+        android:layout_width="190dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="12dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/profileDisplay"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/txtPhone"
+        android:layout_width="223dp"
+        android:layout_height="26dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="16dp"
+        android:layout_below="@id/txtProfile"
+        android:text="Phone: 0544444444"
+        android:textAlignment="textStart"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txtEmail"
+        android:layout_width="223dp"
+        android:layout_height="26dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="16dp"
+        android:layout_below="@id/txtPhone"
+        android:text="Email: asdfa@gmail.com"
+        android:textAlignment="textStart"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txtCountry"
+        android:layout_width="223dp"
+        android:layout_height="26dp"
+        android:layout_below="@id/txtEmail"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="16dp"
+        android:text="Origin Country: France"
+        android:textAlignment="textStart"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txtLanguage"
+        android:layout_width="223dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="15dp"
+        android:layout_below="@id/txtCountry"
+        android:text="Language: French"
+        android:textAlignment="textStart"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txtArea"
+        android:layout_width="223dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="16dp"
+        android:layout_below="@id/txtLanguage"
+        android:layout_marginBottom="15dp"
+        android:text="Residential Area: Center"
+        android:textAlignment="textStart"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/txtStatus"
+        android:layout_width="223dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="15dp"
+        android:layout_below="@id/txtArea"
+        android:text="Marital Status: Taken"
+        android:textAlignment="textStart"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/txtChildren"
+        android:layout_width="223dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="15dp"
+        android:layout_below="@id/txtStatus"
+        android:text="Has little Children"
+        android:textAlignment="textStart"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/txtHobbies"
+        android:layout_width="223dp"
+        android:layout_height="26dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/txtChildren"
+        android:layout_marginStart="16dp"
+        android:text="Hobbies: "
+        android:textAlignment="textStart"
+        android:textSize="18sp"/>
+    <ScrollView
+        android:id="@+id/hobbiesScrollProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="15dp"
+        android:layout_below="@id/txtHobbies">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tableeee"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/btnHobby1"
+                    android:layout_width="155dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help1" />
+
+                <CheckBox
+                    android:id="@+id/btnHobby2"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help2" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/btnHobby3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help3" />
+
+                <CheckBox
+                    android:id="@+id/btnHobby4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help4" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/btnHobby5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help5" />
+
+                <CheckBox
+                    android:id="@+id/btnHobby6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help6" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="266dp"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/btnHobby7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help7" />
+
+                <CheckBox
+                    android:id="@+id/btnHobby8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help8" />
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+    <TextView
+        android:layout_width="223dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/canHelp"
+        android:text="Can help with:"
+        android:textAlignment="textStart"
+        android:textSize="18sp"
+        android:layout_below="@id/hobbiesScrollProfile"
+        />
+    <ScrollView
+        android:id="@+id/helpScrollProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@id/canHelp">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/btnHelp1"
+                    android:layout_width="155dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help1" />
+
+                <CheckBox
+                    android:id="@+id/btnHelp2"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help2" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/btnHelp3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help3" />
+
+                <CheckBox
+                    android:id="@+id/btnHelp4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help4" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/btnHelp5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help5" />
+
+                <CheckBox
+                    android:id="@+id/btnHelp6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help6" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="266dp"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/btnHelp7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help7" />
+
+                <CheckBox
+                    android:id="@+id/btnHelp8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help8" />
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnSetHelp"
+        android:layout_width="111dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="150dp"
+        android:onClick="btnSetHelpOnClick"
+        android:text="Set Help" />
+</RelativeLayout>
