@@ -32,14 +32,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:layout_width="366dp"
-        android:layout_height="93dp"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="110dp">
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="15dp"
+        >
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -49,13 +52,13 @@
                     android:id="@+id/btnHelp1"
                     android:layout_width="155dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/help1" />
+                    android:text="@string/hobby1" />
 
                 <CheckBox
                     android:id="@+id/btnHelp2"
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/help2" />
+                    android:text="@string/hobby2" />
 
             </TableRow>
 
@@ -67,13 +70,13 @@
                     android:id="@+id/btnHelp3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/help3" />
+                    android:text="@string/hobby3" />
 
                 <CheckBox
                     android:id="@+id/btnHelp4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/help4" />
+                    android:text="@string/hobby4" />
 
             </TableRow>
 
@@ -85,13 +88,13 @@
                     android:id="@+id/btnHelp5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/help5" />
+                    android:text="@string/hobby5" />
 
                 <CheckBox
                     android:id="@+id/btnHelp6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/help6" />
+                    android:text="@string/hobby6" />
             </TableRow>
 
             <TableRow
@@ -102,13 +105,13 @@
                     android:id="@+id/btnHelp7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/help7" />
+                    android:text="@string/hobby7" />
 
                 <CheckBox
                     android:id="@+id/btnHelp8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/help8" />
+                    android:text="@string/hobby8" />
             </TableRow>
         </TableLayout>
     </ScrollView>

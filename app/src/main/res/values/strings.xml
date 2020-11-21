@@ -2,14 +2,25 @@
     <string name="app_name">All4Ole-Client</string>
     <string name="people">People like me</string>
     <string name="help">Look for help</string>
-    <string name="help1">Sports</string>
-    <string name="help2">Cooking</string>
-    <string name="help3">Music</string>
-    <string name="help4">Reading</string>
-    <string name="help5">Art</string>
-    <string name="help6">Gaming</string>
-    <string name="help7">Hiking</string>
-    <string name="help8">Pets</string>
+    <string name="hobbies">Hobbies:</string>
+    <string name="hobby1">Sports</string>
+    <string name="hobby2">Cooking</string>
+    <string name="hobby3">Music</string>
+    <string name="hobby4">Reading</string>
+    <string name="hobby5">Art</string>
+    <string name="hobby6">Gaming</string>
+    <string name="hobby7">Hiking</string>
+    <string name="hobby8">Pets</string>
+    <string name="help1">Bureaucracy</string>
+    <string name="help2">Education</string>
+    <string name="help3">Work</string>
+    <string name="help4">Food</string>
+    <string name="help5">Banks</string>
+    <string name="help6">Translation</string>
+    <string name="help7">Babysitter</string>
+    <string name="help8">Lawyers</string>
+    <string name="setHelp">Change help</string>
+    <string name="canHelp">Can Help with:</string>
     <string name="profileDisplay">My Profile</string>
     <string name="otherProfileDisplay">%1$s %2$s</string>
     <string name="phone">Phone: %1$s</string>
@@ -19,6 +30,7 @@
     <string name="area">Residential Area: %1$s</string>
     <string name="marital_status">Marital Status: %1$s</string>
     <string name="children">%1$s little children</string>
+
 
 
 
