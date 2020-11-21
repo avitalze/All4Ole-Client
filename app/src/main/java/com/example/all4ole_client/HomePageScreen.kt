@@ -2,6 +2,7 @@ package com.example.all4ole_client
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
@@ -138,16 +139,20 @@ class HomePageScreen : AppCompatActivity() {
                             println("Successfully got users!!!")
                             // val rate = Gson()
                             //val gson = GsonBuilder().setLenient().create()
-                            val users: List<User> = gson.fromJson(
+                            val users: ArrayList<User> = gson.fromJson(
                                 response.body()?.string(),
                                 Array<User>::class.java
-                            ).asList()
+                            ).asList().toArrayList()
                             //val userrr: List<User> = gson.fromJson(response.body()?.string(), List<User>::class.java)
                             println("trying to printttttt")
                             for (i in users) {
                                 println(i.email + ", " + i.userName + ", " + i.password)
                             }
                             println("finished printttttt")
+
+                            val intent = Intent(this@HomePageScreen ,UsersDisplay::class.java)
+                            intent.putParcelableArrayListExtra("usersList", users)
+                            startActivity(intent)
 
                             // todo show people in other screen
                         } else {
