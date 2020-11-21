@@ -1,6 +1,5 @@
 package com.example.all4ole_client
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -11,8 +10,6 @@ import com.google.gson.GsonBuilder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import okhttp3.MediaType
-import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -24,8 +21,8 @@ class ProfileDisplay : AppCompatActivity() {
     private lateinit var currUser: User
     private var isMyUser: Boolean = true
     private lateinit var setHelpButton: Button
-    private lateinit var helpBtns: ArrayList<CheckBox>
-    private lateinit var hobbyBtns: ArrayList<CheckBox>
+    private lateinit var helpCheckBoxes: ArrayList<CheckBox>
+    private lateinit var hobbyCheckBoxes: ArrayList<CheckBox>
     private lateinit var url: String
 
 
@@ -42,17 +39,24 @@ class ProfileDisplay : AppCompatActivity() {
         }
 
         makeTextViews()
-        helpBtns = ArrayList<CheckBox>()
-        hobbyBtns = ArrayList<CheckBox>()
+        helpCheckBoxes = ArrayList<CheckBox>()
+        hobbyCheckBoxes = ArrayList<CheckBox>()
 
+        var mask:Int = 1
         for (x in 1..8) {
             val buttonHelpID = "btnHelp$x"
             val buttonHobbyID = "btnHobby$x"
 
             val resHelpID = resources.getIdentifier(buttonHelpID, "id", packageName)
             val resHobbyID = resources.getIdentifier(buttonHobbyID, "id", packageName)
-            helpBtns.add(findViewById<View>(resHelpID) as CheckBox)
-            hobbyBtns.add(findViewById<View>(resHobbyID) as CheckBox)
+            helpCheckBoxes.add(findViewById<View>(resHelpID) as CheckBox)
+
+            if((currUser.hobbies and mask) == 1){
+
+            }
+            if((currUser.hobbies and mask) == 1)
+            hobbyCheckBoxes.add(findViewById<View>(resHobbyID) as CheckBox)
+            mask = mask shl 1
         }
 
         //b.text = """Phone:${currUser.cell} """
@@ -89,6 +93,11 @@ class ProfileDisplay : AppCompatActivity() {
             b = findViewById(R.id.txtProfile)
             b.text = applicationContext.getString(R.string.otherProfileDisplay, currUser.firstName, currUser.lastName)
         }
+
+        for(hobby in hobbyCheckBoxes){
+
+        }
+
         /*  b = findViewById(R.id.txtPhone)
           b.text = applicationContext.getString(R.string.phone, currUser.cell)
           b = findViewById(R.id.txtPhone)
@@ -97,7 +106,7 @@ class ProfileDisplay : AppCompatActivity() {
 
     fun btnSetHelpOnClick(view: View) {
         var help: Int = 0
-        for ((i, checkBox) in helpBtns.withIndex()) {
+        for ((i, checkBox) in helpCheckBoxes.withIndex()) {
             if (checkBox.isChecked) {
                 help = help or (1 shl i)
             }
