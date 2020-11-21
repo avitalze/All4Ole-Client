@@ -33,8 +33,8 @@ class UsersDisplay : AppCompatActivity() {
 
     private fun postToList(){
 
-        for (i in 1..25){
-            addToList("Title $i", "Description $i", R.mipmap.ic_launcher_round)
+        for (i in 0 until users.size){
+            addToList(users[i].firstName + " " + users[i].lastName, "From " + users[i].originCountry, R.mipmap.ic_launcher_round)
         }
     }
 
