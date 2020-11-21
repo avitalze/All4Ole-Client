@@ -106,15 +106,15 @@ class MainActivity :AppCompatActivity () {
                             println("finished printttttt")
                             if(userFromServer.password == password){
                                 currUser =  userFromServer
-                                val intent = Intent(this@MainActivity,HomePageScreen::class.java)
+                                /*val intent = Intent(this@MainActivity,HomePageScreen::class.java)
                                 intent.putExtra("currUser",currUser)
                                 intent.putExtra("theUrl",urlAddress)
+                                startActivity(intent)*/
+                                val intent = Intent(this@MainActivity,ProfileDisplay::class.java)
+                                intent.putExtra("currUser",currUser)
+                                intent.putExtra("isMyUser",true)
+                                intent.putExtra("theUrl",urlAddress)
                                 startActivity(intent)
-//                                val intent = Intent(this@MainActivity,ProfileDisplay::class.java)
-//                                intent.putExtra("currUser",currUser)
-//                                intent.putExtra("isMyUser",false)
-//                                intent.putExtra("theUrl",urlAddress)
-//                                startActivity(intent)
                             }
                         } else {
                             toastMessage(applicationContext,"userName or password is incorrect")

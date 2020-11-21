@@ -22,6 +22,11 @@ interface Api {
     @GET("/user/hobby")
     fun findFriendsForHobbies(@Query("userName") userName:String, @Query("hobby") hobby:Int): Call<ResponseBody>
 
+    // GET  of setHelp
+    // example :     /user/hobby?username=”yosi"&help=4
+    @GET("/user/setHelp")
+    fun setHelp(@Query("userName") userName:String, @Query("help") help:Int): Call<ResponseBody>
+
     // POST of login
     // exmple: /user/login
     @Headers("Content-Type: application/json")
