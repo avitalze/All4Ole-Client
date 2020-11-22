@@ -1,6 +1,6 @@
 # All4Ole-Client
 
-Build For Good, Apps Flyler's mobile app challenge 
+Build For Good, Apps Flyer's mobile app challenge 
 
 Created by: Gilad Asher, Israel Shai and Avital Zehavi 
 
