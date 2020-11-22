@@ -39,7 +39,7 @@ class ProfileDisplay : AppCompatActivity() {
         }
 
         makeTextViews()
-        setTextBoxes()
+        setCheckBoxes()
 
 
     }
@@ -74,7 +74,7 @@ class ProfileDisplay : AppCompatActivity() {
         }
     }
 
-    private fun setTextBoxes() {
+    private fun setCheckBoxes() {
         helpCheckBoxes = ArrayList<CheckBox>()
         hobbyCheckBoxes = ArrayList<CheckBox>()
 

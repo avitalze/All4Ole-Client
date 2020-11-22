@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrationScreen">
+    tools:context=".RegistrationB">
 
     <TextView
         android:id="@+id/title"
@@ -254,39 +253,14 @@
         </TableLayout>
     </ScrollView>
 
-    <!--    last name-->
-
-
-    <!--    Phone-->
-
-
-    <!--    Origin Country-->
-
-    <!--    Language-->
-
-
     <Button
-        android:id="@+id/btnContinue"
+        android:id="@+id/btnFinish"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/colorAccent"
-        android:onClick="btnContinueOnClick"
+        android:onClick="btnFinishOnClick"
         android:text="Finish"
         android:textColor="#fff" />
-
-    <!--
-        <TextView
-            android:id="@+id/tvLogin"
-            android:onClick="loginOnClick"
-            android:layout_width="wrap_content"
-            android:text="Login"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:padding="10dp"
-            android:layout_height="wrap_content"></TextView>-->
 
 </RelativeLayout>

@@ -28,12 +28,20 @@ interface Api {
     fun setHelp(@Query("userName") userName:String, @Query("help") help:Int): Call<ResponseBody>
 
     // POST of login
-    // exmple: /user/login
+    // example: /user/login
     @Headers("Content-Type: application/json")
     @POST("user/login") //{password}
     fun logIn(@Body userDetails: RequestBody): Call<ResponseBody>
     //     fun ourMethodName we will call ( value we get : value we return )
 
+
+
+    // POST of register
+    // example: /user/register
+    @Headers("Content-Type: application/json")
+    @POST("user/register") //{password}
+    fun register(@Body userDetails: RequestBody): Call<ResponseBody>
+    //     fun ourMethodName we will call ( value we get : value we return )
 
     // POST of register
     //   exmple: /user/register

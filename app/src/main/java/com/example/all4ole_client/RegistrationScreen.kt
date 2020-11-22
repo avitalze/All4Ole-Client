@@ -72,7 +72,7 @@ class RegistrationScreen : AppCompatActivity() {
         intent.putExtra("currUser",user)
         intent.putExtra("theUrl",url)
         startActivity(intent)
-
+        finish()
 
         // todo ooooooooooooooooooooo
         /*   userToeRegister.userName = etRegUsername.text.toString()
