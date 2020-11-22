@@ -25,7 +25,7 @@ The main activity of the app is the login screen, in which the user is typing hi
 
 ![Login](images/Login.jpg)
 
-if it is a new user, he can register to the app, inserting username, password, email, first and last name, phone number, origin country, and language.
+If it is a new user, he can register to the app, inserting username, password, email, first and last name, phone number, origin country, and language.
 He can also choose his hobbies and subjects he can help with.
 
 ![register](images/register.jpg)
