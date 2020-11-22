@@ -18,6 +18,16 @@
         android:textAllCaps="false"
         android:background="#03A9F4"
         />
+    <Button
+        android:id="@+id/btnDisconnect"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:onClick="btnDisconnectOnClick"
+        android:text="@string/disconnect"
+        android:textAllCaps="false"
+        android:background="#F44336"
+        />
 
     <TextView
         android:id="@+id/welcomeTextView"

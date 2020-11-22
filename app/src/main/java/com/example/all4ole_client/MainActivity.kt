@@ -28,7 +28,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-class MainActivity :AppCompatActivity () {
+class MainActivity : AppCompatActivity() {
 
     companion object {
 
@@ -44,43 +44,27 @@ class MainActivity :AppCompatActivity () {
 
     //variables
     private lateinit var currUser: User
-    private var insertedUsername: String = "";
-    private var insertedPassword: String = "";
-    private var checkGit: String = "";
-
-    // israel
     private lateinit var loginButton: Button
-    private lateinit var registerButton: Button
     private lateinit var usernameEditText: EditText
-    private lateinit var passwordEditText:EditText
-    private var username = ""
-    private var password = ""
-    //private var urlAddress: String? = "http://10.0.2.2:5001"  // for sending json
-    //private var urlAddress: String? = "https://all4oleserver.azurewebsites.net" // for sending json
-    private var urlAddress: String? = "http://3.138.60.124:5001" // for sending json
+    private lateinit var passwordEditText: EditText
+    private var username: String = ""
+    private var password: String = ""
 
+    //private var urlAddress: String? = "http://10.0.2.2:5001"  // for sending json on my computer
+    private var urlAddress: String? = "http://3.138.60.124:5001" // for sending json
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         loginButton = findViewById(R.id.btnLogin)
-//        registerButton = findViewById(R.id.tvRegister) // registerBtn
-
-/*        btnNext.setOnClickListener{
-            val intent=Intent(this,LoginCheck::class.java);
-            intent.putExtra("data","test data")
-            startActivity(intent)
-        }*/
     }
 
-    // log in - post
+    // log in - post to server
     private fun logIn(user_name: String, password: String) {
         val json = "{\n \"user_name\": \"${user_name}\",\n \"password\": \"${password}\"\n}"
         val rb: RequestBody = RequestBody.create(MediaType.parse("application/json"), json)
         val gson = GsonBuilder().setLenient().create()
-        var currUserString=""
         //Create the retrofit instance to issue with the network requests:
         try {
             val retrofit = Retrofit.Builder()
@@ -92,80 +76,52 @@ class MainActivity :AppCompatActivity () {
             CoroutineScope(Dispatchers.IO).launch {
                 //Sending the request
                 api.logIn(rb).enqueue(object : Callback<ResponseBody> {
-                    override fun onResponse(
-                        call: Call<ResponseBody>,
-                        response: Response<ResponseBody>
-                    ) {
-                        if (response.message() == "OK" || response.isSuccessful) { // if ok we get all user ditels -how to get
-                            // save details of curr user
-                            println("Successfully posted - user logIn to app")
-                           // val rate = Gson()
+                    override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                        // if ok takes the user that came back from server (makes json a User) and saves details of curr user
+                        if (response.message() == "OK" || response.isSuccessful) {
                             val userFromServer: User = gson.fromJson(response.body()?.string(), User::class.java)
-                            println("trying to printttttt")
-                            println(userFromServer.email + ", " + userFromServer.userName + ", " + userFromServer.password)
-                            println("finished printttttt")
-                            if(userFromServer.password == password){
-                                currUser =  userFromServer
-                                val intent = Intent(this@MainActivity,HomePageScreen::class.java)
-                                intent.putExtra("currUser",currUser)
-                                intent.putExtra("theUrl",urlAddress)
+                            if (userFromServer.password == password) {
+                                currUser = userFromServer
+                                val intent = Intent(this@MainActivity, HomePageScreen::class.java)
+                                intent.putExtra("currUser", currUser)
+                                intent.putExtra("theUrl", urlAddress)
                                 startActivity(intent)
                             }
                         } else {
-                            toastMessage(applicationContext,"userName or password is incorrect")
+                            toastMessage(applicationContext, "userName or password are incorrect")
                         }
                     }
 
                     override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                         println(t.message.toString())
-                        MainActivity.toastMessage(applicationContext, "Error in connection with server, go back to menu");
+                        toastMessage(applicationContext, "Error in connection with server, go back to menu");
                     }
                 })
             }
         } catch (e: Exception) {
-            MainActivity.toastMessage(applicationContext, "Invalid url - Go back to menu");
+            toastMessage(applicationContext, "Invalid url - Go back to menu");
         }
     }
 
-
-    fun loginOnClick(view: View){
+    // login to user if all is set
+    fun loginOnClick(view: View) {
         usernameEditText = findViewById(R.id.edUserName)
         username = usernameEditText.text.toString()
         passwordEditText = findViewById(R.id.edPassword)
         password = passwordEditText.text.toString()
-//            if(edUserName.text.trim().isNotEmpty() || edPassword.text.trim().isNotEmpty()){
-        if(edUserName.text.isNotEmpty() && edPassword.text.isNotEmpty()){
-            // do
-            Toast.makeText(this,"input is ok",Toast.LENGTH_LONG).show()
-            println("-------------------curr user name is: "+username+"-------------------" )
-            println("-------------------curr password is: "+password+"---------------------" )
-            Log.d("myTag", "This is my message");
+        if (edUserName.text.isNotEmpty() && edPassword.text.isNotEmpty()) {
+            logIn(username, password)
         }
         // empty userName or password
-        else{
-            Toast.makeText(this,"input not full",Toast.LENGTH_LONG).show()
+        else {
+            Toast.makeText(this, "input not full", Toast.LENGTH_LONG).show()
         }
-        logIn(username, password)
-    // TODO send username, password to server, if true go to homepage, else alert
     }
 
     //   move to registration screen
-    fun registerOnClick(view: View){
+    fun registerOnClick(view: View) {
         val intent = Intent(this, RegistrationScreen::class.java)
-        intent.putExtra("theUrl",urlAddress)
+        intent.putExtra("theUrl", urlAddress)
         startActivity(intent)
     }
-
-
-
-    // POST login
-//    fun clickOnLogInButton() {
-//
-//        // data class UserDitels ????
-//        val json = "{\"username\": $username,\n \"password\": $password,\n}"
-//        val rb: RequestBody = RequestBody.create(MediaType.parse("application/json"), json)
-//        val gson = GsonBuilder().setLenient().create();
-//        // use API func : logIn(rb)
-//
-//    }
 }

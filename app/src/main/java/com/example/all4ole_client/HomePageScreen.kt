@@ -56,6 +56,11 @@ class HomePageScreen : AppCompatActivity() {
     }
 
 
+    fun btnDisconnectOnClick(view: View){
+        finish()
+    }
+
+
     fun btnProfileOnClick(view: View){
         val intent = Intent(this@HomePageScreen,ProfileDisplay::class.java)
         intent.putExtra("currUser",currUser)
