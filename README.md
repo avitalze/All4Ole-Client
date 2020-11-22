@@ -15,7 +15,7 @@ Olim who need help or company in any field they want, can get information and ac
 ## Program explanation
 
 The server is implemented in ASP .NET Core Framework  that accesses a remote MySQL database, consists of registered 
- users. The front-end was built in Android Studio in Kotlin, making the connection to the server, implementing the MVC Design Pattern. 
+users. The server is currently running on AWS Cloud. The front-end was built in Android Studio in Kotlin, making the connection to the server, implementing the MVC Design Pattern. 
  
 ![Profile](images/data_base.jpg)
  
