@@ -62,6 +62,9 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
+
+// the user object - can be converted to/from json
+
 @Parcelize
 data class User (
     @SerializedName("cell")

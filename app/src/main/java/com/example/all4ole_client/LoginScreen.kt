@@ -3,8 +3,6 @@ package com.example.all4ole_client
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.provider.AlarmClock
-import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.Button
@@ -12,9 +10,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.GsonBuilder
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.edPassword
-import kotlinx.android.synthetic.main.activity_main.edUserName
+import kotlinx.android.synthetic.main.activity_login_screen.edPassword
+import kotlinx.android.synthetic.main.activity_login_screen.edUserName
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -28,7 +25,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-class MainActivity : AppCompatActivity() {
+class LoginScreen : AppCompatActivity() {
 
     companion object {
 
@@ -56,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login_screen)
         loginButton = findViewById(R.id.btnLogin)
     }
 
@@ -67,8 +64,7 @@ class MainActivity : AppCompatActivity() {
         val gson = GsonBuilder().setLenient().create()
         //Create the retrofit instance to issue with the network requests:
         try {
-            val retrofit = Retrofit.Builder()
-                .baseUrl(urlAddress.toString())
+            val retrofit = Retrofit.Builder().baseUrl(urlAddress.toString())
                 .addConverterFactory(GsonConverterFactory.create(gson)).build();
 
             //Defining the api for sending by the request
@@ -82,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                             val userFromServer: User = gson.fromJson(response.body()?.string(), User::class.java)
                             if (userFromServer.password == password) {
                                 currUser = userFromServer
-                                val intent = Intent(this@MainActivity, HomePageScreen::class.java)
+                                val intent = Intent(this@LoginScreen, HomePageScreen::class.java)
                                 intent.putExtra("currUser", currUser)
                                 intent.putExtra("theUrl", urlAddress)
                                 startActivity(intent)

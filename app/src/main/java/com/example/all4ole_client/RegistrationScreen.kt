@@ -22,7 +22,7 @@ class RegistrationScreen : AppCompatActivity() {
     private lateinit var url: String
 
     companion object {
-        const val MYREQUESTCODE = 1
+        const val MY_REQUEST_CODE = 1
     }
 
 
@@ -63,6 +63,7 @@ class RegistrationScreen : AppCompatActivity() {
         }
     }
 
+    // go to other registration screen if all fields are set
     fun btnContinueOnClick(view: View) {
 
         val userName: Pair<String, String> = Pair(editUserName.text.toString(), "userName")
@@ -76,7 +77,7 @@ class RegistrationScreen : AppCompatActivity() {
 
         for (parameter in allEditText) {
             if (parameter.first == "") {
-                MainActivity.toastMessage(this, "You didn't write ${parameter.second}")
+                LoginScreen.toastMessage(this, "You didn't write ${parameter.second}")
                 return
             }
         }
@@ -85,12 +86,12 @@ class RegistrationScreen : AppCompatActivity() {
         val countryStr: String = country.selectedItem.toString()
 
         if(countryStr== resources.getStringArray(R.array.countries)[0]){
-            MainActivity.toastMessage(this, "You didn't choose previous country!")
+            LoginScreen.toastMessage(this, "You didn't choose previous country!")
             return
         }
 
         if(languageStr== resources.getStringArray(R.array.languages)[0]){
-            MainActivity.toastMessage(this, "You didn't choose language!")
+            LoginScreen.toastMessage(this, "You didn't choose language!")
             return
         }
 
@@ -104,12 +105,13 @@ class RegistrationScreen : AppCompatActivity() {
         val intent = Intent(this@RegistrationScreen, RegistrationB::class.java)
         intent.putExtra("currUser", user)
         intent.putExtra("theUrl", url)
-        startActivityForResult(intent, MYREQUESTCODE)
+        startActivityForResult(intent, MY_REQUEST_CODE)
     }
 
+    // if the user ended the registration in the second screen it goes back to login screen
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == MYREQUESTCODE && resultCode == Activity.RESULT_OK) {
+        if (requestCode == MY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             finish()
         }
     }

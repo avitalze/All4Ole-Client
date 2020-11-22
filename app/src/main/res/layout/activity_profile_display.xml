@@ -303,6 +303,7 @@
         android:onClick="btnSetHelpOnClick"
         android:text="@string/setHelp" />
 
+    <!--for the user's picture in the future-->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"

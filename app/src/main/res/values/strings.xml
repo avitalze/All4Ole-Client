@@ -34,9 +34,7 @@
     <string name="disconnect">Disconnect</string>
     <string name="welcome_home">Welcome %1$s\nWhat can we help you with? </string>
     <string name="welcome_home2">What can we help you with?</string>
-
-
-
+    
     <string-array name="countries">
         <item>Origin country:</item>
         <item>Brazil</item>

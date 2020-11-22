@@ -1,6 +1,5 @@
 package com.example.all4ole_client
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -36,7 +35,7 @@ class RegistrationB : AppCompatActivity() {
         url = intent.getStringExtra("theUrl")!!
         area = findViewById(R.id.areaSpinner)
         hasChildren = findViewById(R.id.hasChildren)
-        setCheckBoxes()
+        addCheckBoxes()
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter.createFromResource(
             this,
@@ -62,11 +61,12 @@ class RegistrationB : AppCompatActivity() {
         }
     }
 
-    private fun setCheckBoxes() {
+    // add check boxes (help & hobbies) to lists
+    private fun addCheckBoxes() {
         helpCheckBoxes = ArrayList<CheckBox>()
         hobbyCheckBoxes = ArrayList<CheckBox>()
 
-        var mask: Int = 1
+        var mask = 1
         for (x in 1..8) {
             val buttonHelpID = "btnHelp$x"
             val buttonHobbyID = "btnHobby$x"
@@ -81,24 +81,21 @@ class RegistrationB : AppCompatActivity() {
         }
     }
 
-
+    // if user presses finish - checks if all fields are set and send the user to server
     fun btnFinishOnClick(view: View) {
         if(area.selectedItem.toString()== resources.getStringArray(R.array.residential_areas)[0]){
-            MainActivity.toastMessage(this, "You didn't choose residential area!")
+            LoginScreen.toastMessage(this, "You didn't choose residential area!")
             return
         }
         if(maritalStatus.selectedItem.toString()== resources.getStringArray(R.array.marital_status)[0]){
-            MainActivity.toastMessage(this, "You didn't choose marital status!")
+            LoginScreen.toastMessage(this, "You didn't choose marital status!")
             return
         }
-
-
-
 
         val help: Int = getHelp()
         val hobbies: Int = getHobby()
         if(hobbies==0){
-            MainActivity.toastMessage(this, "Choose at list one hobby")
+            LoginScreen.toastMessage(this, "Choose at list one hobby")
             return
         }
         currUser.residentialArea = area.selectedItem.toString()
@@ -115,7 +112,7 @@ class RegistrationB : AppCompatActivity() {
             0
         }
 
-
+        // send user to server
         val gson = GsonBuilder().setLenient().create()
         val userJson: String = gson.toJson(currUser, User::class.java)
         val rb: RequestBody = RequestBody.create(MediaType.parse("application/json"), userJson)
@@ -133,30 +130,31 @@ class RegistrationB : AppCompatActivity() {
                     override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                         if (response.message() == "OK" || response.isSuccessful) { // if ok we get all user details -how to get
                             // save details of curr user
-                            println("Successfully posted - user registered")
                             val userFromServer: User = gson.fromJson(response.body()?.string(), User::class.java)
+                            // checks if the user came back successfully from the server and if so go back to login screen
                             if (userFromServer == currUser) {
                                 currUser = userFromServer
-                                MainActivity.toastMessage(applicationContext, "Registered Successfully")
+                                LoginScreen.toastMessage(applicationContext, "Registered Successfully")
                                 setResult(RESULT_OK)
                                 finish()
                             }
                         } else {
-                            MainActivity.toastMessage(applicationContext, "userName already exists")
+                            LoginScreen.toastMessage(applicationContext, "userName already exists")
                         }
                     }
 
                     override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                         println(t.message.toString())
-                        MainActivity.toastMessage(applicationContext, "Error in connection with server, go back to menu")
+                        LoginScreen.toastMessage(applicationContext, "Error in connection with server, go back to menu")
                     }
                 })
             }
         } catch (e: Exception) {
-            MainActivity.toastMessage(applicationContext, "Invalid url - Go back to menu")
+            LoginScreen.toastMessage(applicationContext, "Invalid url - Go back to menu")
         }
     }
 
+    // calculate the help number from the check boxes (bitwise)
     private fun getHelp(): Int {
         var help = 0
         for ((i, checkBox) in helpCheckBoxes.withIndex()) {
@@ -167,6 +165,7 @@ class RegistrationB : AppCompatActivity() {
         return help
     }
 
+    // calculate the hobbies number from the check boxes (bitwise)
     private fun getHobby(): Int {
         var hobbies = 0
         for ((i, checkBox) in hobbyCheckBoxes.withIndex()) {

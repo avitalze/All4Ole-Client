@@ -13,12 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RegistrationB"></activity>
+        <activity android:name=".RegistrationB"/>
         <activity android:name=".ProfileDisplay" />
         <activity android:name=".UsersDisplay" />
         <activity android:name=".HomePageScreen" />
         <activity android:name=".RegistrationScreen" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

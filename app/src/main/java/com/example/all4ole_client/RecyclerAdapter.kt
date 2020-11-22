@@ -25,6 +25,7 @@ RecyclerView.Adapter<RecyclerAdapter.ViewHolder>(){
         lateinit var context:Context
 
 
+        // if user pressed a record it takes him to the user display
         init {
             itemView.setOnClickListener{
                 val intent = Intent(context,ProfileDisplay::class.java)
@@ -47,6 +48,7 @@ RecyclerView.Adapter<RecyclerAdapter.ViewHolder>(){
         return titles.size
     }
 
+    // add fields to record in list
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemTitle.text = titles[position]
         holder.itemDetail.text = details[position]

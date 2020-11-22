@@ -5,13 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegistrationScreen">
-
-    <!--        <TextView-->
-<!--            android:id="@+id/textView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="62dp"-->
-<!--            android:text="We want you to get the most out of the app, please fill in the following details about you." ></TextView>-->
-
+    
     <TextView
         android:id="@+id/title"
         android:text="@string/Register"
@@ -154,52 +148,6 @@
         android:layout_marginBottom="8dp"
         />
 
-<!--
-
-    &lt;!&ndash;    Origin Country&ndash;&gt;
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textOriginCountry"
-        android:layout_width="match_parent"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_below="@+id/textPhone"
-        android:hint="Origin Country"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/editOriginCountry"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Origin Country" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    &lt;!&ndash;    Language&ndash;&gt;
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textLanguage"
-        android:layout_width="match_parent"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_below="@+id/textOriginCountry"
-        android:hint="Language"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/editLanguage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Language" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-
--->
-
-
-
-
-
-
-
-
     <Button
         android:id="@+id/btnContinue"
         android:layout_width="match_parent"
@@ -209,19 +157,5 @@
         android:textColor="#fff"
         android:background="@color/colorAccent"
         android:layout_height="wrap_content"/>
-
-<!--
-    <TextView
-        android:id="@+id/tvLogin"
-        android:onClick="loginOnClick"
-        android:layout_width="wrap_content"
-        android:text="Login"
-        android:textColor="@color/colorPrimary"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="10dp"
-        android:layout_height="wrap_content"></TextView>-->
 
 </RelativeLayout>
