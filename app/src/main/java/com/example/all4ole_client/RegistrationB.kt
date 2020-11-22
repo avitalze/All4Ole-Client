@@ -20,11 +20,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class RegistrationB : AppCompatActivity() {
 
-
-    private lateinit var continueButton: Button
-    private lateinit var etRegUsername: EditText
-    private lateinit var etRegPassword: EditText
-    private lateinit var etRegEmail: EditText
     private lateinit var maritalStatus: Spinner
     private lateinit var area: Spinner
     private lateinit var currUser: User
@@ -88,8 +83,24 @@ class RegistrationB : AppCompatActivity() {
 
 
     fun btnFinishOnClick(view: View) {
+        if(area.selectedItem.toString()== resources.getStringArray(R.array.residential_areas)[0]){
+            MainActivity.toastMessage(this, "You didn't choose residential area!")
+            return
+        }
+        if(maritalStatus.selectedItem.toString()== resources.getStringArray(R.array.marital_status)[0]){
+            MainActivity.toastMessage(this, "You didn't choose marital status!")
+            return
+        }
+
+
+
+
         val help: Int = getHelp()
         val hobbies: Int = getHobby()
+        if(hobbies==0){
+            MainActivity.toastMessage(this, "Choose at list one hobby")
+            return
+        }
         currUser.residentialArea = area.selectedItem.toString()
         currUser.help = help
         currUser.hobbies = hobbies
@@ -127,10 +138,11 @@ class RegistrationB : AppCompatActivity() {
                             if (userFromServer == currUser) {
                                 currUser = userFromServer
                                 MainActivity.toastMessage(applicationContext, "Registered Successfully")
+                                setResult(RESULT_OK)
                                 finish()
                             }
                         } else {
-                            MainActivity.toastMessage(applicationContext, "userName or password is incorrect")
+                            MainActivity.toastMessage(applicationContext, "userName already exists")
                         }
                     }
 

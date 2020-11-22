@@ -109,7 +109,7 @@ class ProfileDisplay : AppCompatActivity() {
 
 
     fun btnSetHelpOnClick(view: View) {
-        var help: Int = 0
+        var help = 0
         for ((i, checkBox) in helpCheckBoxes.withIndex()) {
             if (checkBox.isChecked) {
                 help = help or (1 shl i)

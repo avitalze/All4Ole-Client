@@ -37,7 +37,7 @@
 
 
     <string-array name="countries">
-        <item>Country</item>
+        <item>Origin country:</item>
         <item>Brazil</item>
         <item>USA</item>
         <item>France</item>
@@ -48,7 +48,7 @@
         <item>Germany</item>
     </string-array>
     <string-array name="languages">
-        <item>Language</item>
+        <item>Language:</item>
         <item>Portuguese</item>
         <item>English</item>
         <item>French</item>
@@ -58,11 +58,13 @@
         <item>German</item>
     </string-array>
     <string-array name="residential_areas">
+        <item>Live now in:</item>
         <item>North</item>
         <item>Center</item>
         <item>South</item>
     </string-array>
     <string-array name="marital_status">
+        <item>Marital status:</item>
         <item>Taken</item>
         <item>Available</item>
     </string-array>

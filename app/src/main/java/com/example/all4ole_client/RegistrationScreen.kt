@@ -1,12 +1,13 @@
 package com.example.all4ole_client
 
+import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.*
-import kotlinx.android.synthetic.main.activity_registration_b.*
-import kotlinx.android.synthetic.main.activity_registration_screen.*
+import android.widget.ArrayAdapter
+import android.widget.EditText
+import android.widget.Spinner
+import androidx.appcompat.app.AppCompatActivity
 
 class RegistrationScreen : AppCompatActivity() {
 
@@ -19,6 +20,10 @@ class RegistrationScreen : AppCompatActivity() {
     private lateinit var country: Spinner
     private lateinit var language: Spinner
     private lateinit var url: String
+
+    companion object {
+        const val MYREQUESTCODE = 1
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +64,35 @@ class RegistrationScreen : AppCompatActivity() {
     }
 
     fun btnContinueOnClick(view: View) {
-        // todo check if user exists
+
+        val userName: Pair<String, String> = Pair(editUserName.text.toString(), "userName")
+        val password: Pair<String, String> = Pair(editPassword.text.toString(), "password")
+        val email: Pair<String, String> = Pair(editEmail.text.toString(), "email")
+        val firstName: Pair<String, String> = Pair(editFirstName.text.toString(), "firstName")
+        val lastName: Pair<String, String> = Pair(editLastName.text.toString(), "lastName")
+        val phone: Pair<String, String> = Pair(editPhone.text.toString(), "phone")
+
+        val allEditText: List<Pair<String, String>> = listOf(userName, password, email, firstName, lastName, phone)
+
+        for (parameter in allEditText) {
+            if (parameter.first == "") {
+                MainActivity.toastMessage(this, "You didn't write ${parameter.second}")
+                return
+            }
+        }
+
+        val languageStr: String = language.selectedItem.toString()
+        val countryStr: String = country.selectedItem.toString()
+
+        if(countryStr== resources.getStringArray(R.array.countries)[0]){
+            MainActivity.toastMessage(this, "You didn't choose previous country!")
+            return
+        }
+
+        if(languageStr== resources.getStringArray(R.array.languages)[0]){
+            MainActivity.toastMessage(this, "You didn't choose language!")
+            return
+        }
 
         val user = User(
             editPhone.text.toString(), editEmail.text.toString(), editFirstName.text.toString(),
@@ -69,40 +102,15 @@ class RegistrationScreen : AppCompatActivity() {
 
 
         val intent = Intent(this@RegistrationScreen, RegistrationB::class.java)
-        intent.putExtra("currUser",user)
-        intent.putExtra("theUrl",url)
-        startActivity(intent)
-        finish()
-
-        // todo ooooooooooooooooooooo
-        /*   userToeRegister.userName = etRegUsername.text.toString()
-           userToeRegister.password = etRegPassword.text.toString()
-           userToeRegister.email = etRegEmail.text.toString()
-
-           // do func in person that check all details full !
-           if(editUserName.text.isNotEmpty() && editEmail.text.isNotEmpty() && editPassword.text.isNotEmpty()){
-               // do
-               Toast.makeText(this,"input is ok", Toast.LENGTH_LONG).show()
-               println("-------------------curr user name is: "+userToeRegister.userName+"-------------------" )
-               println("-------------------curr password is: "+userToeRegister.password+"---------------------" )
-               println("-------------------curr password is: "+userToeRegister.email+"---------------------" )
-
-               // todo create user from all the fields
-
-               // todo takes the user and make it a json to send to the server
-                   //val outputJson: String = Gson().toJson(myClass)
-
-               // todo send to the server and go to home page
-
-
-           }
-           // empty userName or password
-           else{
-               Toast.makeText(this,"input not full", Toast.LENGTH_LONG).show()
-           }*/
-
-
+        intent.putExtra("currUser", user)
+        intent.putExtra("theUrl", url)
+        startActivityForResult(intent, MYREQUESTCODE)
     }
 
-
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == MYREQUESTCODE && resultCode == Activity.RESULT_OK) {
+            finish()
+        }
+    }
 }
