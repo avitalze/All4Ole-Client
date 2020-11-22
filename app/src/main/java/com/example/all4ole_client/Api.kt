@@ -20,7 +20,7 @@ interface Api {
     // GET  of findFriendsForHobbies
     // example :     /user/hobby?username=”yosi"&hobby=4
     @GET("/user/hobby")
-    fun findFriendsForHobbies(@Query("userName") userName:String, @Query("hobby") hobby:Int): Call<ResponseBody>
+    fun findFriendsForHobbies(@Query("userName") userName:String, @Query("hobbies") hobby:Int): Call<ResponseBody>
 
     // GET  of setHelp
     // example :     /user/hobby?username=”yosi"&help=4

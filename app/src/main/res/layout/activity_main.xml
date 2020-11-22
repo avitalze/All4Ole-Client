@@ -1,61 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="next foe butter place"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.289" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="Login"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/tvUseName"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textSize="26dp"
-        android:textColor="#000"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_height="wrap_content"></TextView>
-
     <TextView
         android:id="@+id/welcomeTextView"
-        android:layout_width="163dp"
-        android:layout_height="26dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="222dp"
+        android:layout_height="65dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
         android:text="Wellcome to All4Ole!"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.153"/>
-<!--        android:textSize="20px"-->
-<!--        android:textStyle="bold"-->
-<!--        android:textColor="#001"/>-->
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="25sp"
+        android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/israelFlag"
+        android:layout_width="142dp"
+        android:layout_height="132dp"
+        android:layout_below="@id/welcomeTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:layout_marginBottom="45dp"
+        android:contentDescription="israelFlag"
+        app:srcCompat="@drawable/israel_flag"
+        tools:layout_editor_absoluteX="134dp"
+        tools:layout_editor_absoluteY="124dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tvUseName"
         android:layout_width="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/israelFlag"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:hint="UserName"
-        android:layout_height="wrap_content">
+        android:hint="UserName">
 
         <EditText
             android:id="@+id/edUserName"
@@ -63,20 +46,16 @@
             android:layout_height="wrap_content"
             android:hint="UserName" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tvPassword"
         android:layout_width="match_parent"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvUseName"
+        android:layout_below="@id/tvUseName"
         android:hint="Password"
         android:layout_height="wrap_content">
 
-        <!--        tools:layout_editor_absoluteX="224dp"-->
-        <!--        tools:layout_editor_absoluteY="202dp">-->
         <EditText
             android:id="@+id/edPassword"
             android:layout_width="match_parent"
@@ -84,70 +63,51 @@
             android:hint="Password"
             android:inputType="textPassword"/>
 
-        <!--        <com.google.android.material.textfield.TextInputEditText-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:hint="hint" />-->
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:text="Login"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_below="@id/tvPassword"
         android:onClick="loginOnClick"
-        app:layout_constraintTop_toBottomOf="@+id/tvPassword"
         android:layout_margin="30dp"
         android:textColor="#fff"
         android:background="@color/colorAccent"
         android:layout_height="wrap_content"/>
 
 
-    // login button
-<!--    <Button-->
-<!--        android:id="@+id/loginBtn"-->
-<!--        android:layout_width="95dp"-->
-<!--        android:layout_height="46dp"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:onClick="loginOnClick"-->
-<!--        android:text="login"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />-->
-
-    // button for register screen
-    <!--    <Button-->
-<!--        android:id="@+id/registerBtn"-->
-<!--        android:layout_width="99dp"-->
-<!--        android:layout_height="34dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:onClick="registerOnClick"-->
-<!--        android:text="Register"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/textView4"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/textView4"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView4" />-->
-
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/registerAdvice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="168dp"
-        android:text="doesn't have an account yet? register now"
-        app:layout_constraintBottom_toTopOf="@+id/tvRegister"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_below="@id/btnLogin"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="75dp"
+        android:gravity="center"
+        android:text="Doesn't have an account yet? register now" />
 
     <TextView
         android:id="@+id/tvRegister"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/registerAdvice"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="142dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="141dp"
+        android:gravity="center"
         android:onClick="registerOnClick"
-        android:layout_width="wrap_content"
+        android:padding="7dp"
         android:text="Register"
         android:textColor="@color/colorPrimary"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="10dp"
-        android:layout_height="wrap_content"></TextView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textSize="18sp" />
+
+</RelativeLayout>
 
