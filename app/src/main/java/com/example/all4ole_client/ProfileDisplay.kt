@@ -51,6 +51,8 @@ class ProfileDisplay : AppCompatActivity() {
         b.text = applicationContext.getString(R.string.email, currUser.email)
         b = findViewById(R.id.txtCountry)
         b.text = applicationContext.getString(R.string.country, currUser.originCountry)
+        b = findViewById(R.id.txtLanguage)
+        b.text = applicationContext.getString(R.string.language, currUser.language)
         b = findViewById(R.id.txtArea)
         b.text = applicationContext.getString(R.string.area, currUser.residentialArea)
         b = findViewById(R.id.txtStatus)
