@@ -1,41 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegistrationScreen">
 
-
-    // israel old !
-<!--        <TextView-->
+    <!--        <TextView-->
 <!--            android:id="@+id/textView"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="62dp"-->
 <!--            android:text="We want you to get the most out of the app, please fill in the following details about you." ></TextView>-->
 
     <TextView
-        android:layout_width="wrap_content"
-        android:text="Register"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/textUserName"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textSize="26dp"
+        android:id="@+id/title"
+        android:text="@string/Register"
+        android:textSize="30sp"
         android:textColor="#000"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_height="wrap_content"></TextView>
+        android:layout_width="190dp"
+        android:layout_height="55dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="8dp"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        />
 
-     <!--userName-->
+<!--userName-->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textUserName"
         android:layout_width="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_below="@+id/title"
         android:hint="UserName"
         android:layout_height="wrap_content">
 
@@ -46,34 +44,14 @@
             android:hint="UserName" />
     </com.google.android.material.textfield.TextInputLayout>
 
-<!--    email-->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textEmail"
-        android:layout_width="match_parent"
-        app:layout_constraintTop_toBottomOf="@+id/textUserName"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:hint="Email"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/editEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email" />
-    </com.google.android.material.textfield.TextInputLayout>
 
     <!--    password -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textPassword"
         android:layout_width="match_parent"
-        app:layout_constraintTop_toBottomOf="@+id/textEmail"
+        android:layout_below="@+id/textUserName"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:hint="Password"
         android:layout_height="wrap_content">
 
@@ -85,18 +63,154 @@
             android:hint="Password" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/btnRegister"
+<!--    email-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textEmail"
         android:layout_width="match_parent"
-        android:text="Register"
-        android:onClick="btnRegisterOnClick"
-        app:layout_constraintTop_toBottomOf="@+id/textPassword"
-        android:layout_margin="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_below="@+id/textPassword"
+        android:hint="Email"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/editEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--    first name-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFirstName"
+        android:layout_width="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_below="@+id/textEmail"
+        android:hint="First Name"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/editFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="First Name" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--    last name-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textLastName"
+        android:layout_width="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_below="@+id/textFirstName"
+        android:hint="Last Name"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/editLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Last Name" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <!--    Phone-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textPhone"
+        android:layout_width="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_below="@+id/textLastName"
+        android:hint="Phone"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/editPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Spinner
+        android:id="@+id/countrySpinner"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/textPhone"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="8dp"
+        />
+
+    <Spinner
+        android:id="@+id/languageSpinner"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/countrySpinner"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="8dp"
+        />
+
+<!--
+
+    &lt;!&ndash;    Origin Country&ndash;&gt;
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textOriginCountry"
+        android:layout_width="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_below="@+id/textPhone"
+        android:hint="Origin Country"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/editOriginCountry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Origin Country" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    &lt;!&ndash;    Language&ndash;&gt;
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textLanguage"
+        android:layout_width="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_below="@+id/textOriginCountry"
+        android:hint="Language"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/editLanguage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Language" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+-->
+
+
+
+
+
+
+
+
+    <Button
+        android:id="@+id/btnContinue"
+        android:layout_width="match_parent"
+        android:text="Continue"
+        android:onClick="btnContinueOnClick"
+        android:layout_alignParentBottom="true"
         android:textColor="#fff"
         android:background="@color/colorAccent"
         android:layout_height="wrap_content"/>
 
-
+<!--
     <TextView
         android:id="@+id/tvLogin"
         android:onClick="loginOnClick"
@@ -108,6 +222,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:padding="10dp"
-        android:layout_height="wrap_content"></TextView>
+        android:layout_height="wrap_content"></TextView>-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

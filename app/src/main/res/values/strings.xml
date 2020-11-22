@@ -30,9 +30,37 @@
     <string name="area">Residential Area: %1$s</string>
     <string name="marital_status">Marital Status: %1$s</string>
     <string name="children">%1$s little children</string>
-
-
-
+    <string name="Register">Register</string>
+    <string-array name="countries">
+        <item>Country</item>
+        <item>Brazil</item>
+        <item>USA</item>
+        <item>France</item>
+        <item>Spain</item>
+        <item>Russia</item>
+        <item>Britain</item>
+        <item>Italy</item>
+        <item>Germany</item>
+    </string-array>
+    <string-array name="languages">
+        <item>Language</item>
+        <item>Portuguese</item>
+        <item>English</item>
+        <item>French</item>
+        <item>Spanish</item>
+        <item>Russian</item>
+        <item>Italian</item>
+        <item>German</item>
+    </string-array>
+    <string-array name="residential_areas">
+        <item>North</item>
+        <item>Center</item>
+        <item>South</item>
+    </string-array>
+    <string-array name="marital_status">
+        <item>Taken</item>
+        <item>Available</item>
+    </string-array>
 
 
 </resources>

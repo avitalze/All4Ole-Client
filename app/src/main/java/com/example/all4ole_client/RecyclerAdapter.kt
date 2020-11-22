@@ -1,5 +1,7 @@
 package com.example.all4ole_client
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 
 
-class RecyclerAdapter (private var titles: List<String>, private var details: List<String>, private var images:List<Int>):
+class RecyclerAdapter (private var titles: List<String>, private var details: List<String>, private var images:List<Int>, private var
+users:List<User>, private var theContext:Context):
 RecyclerView.Adapter<RecyclerAdapter.ViewHolder>(){
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -18,13 +21,20 @@ RecyclerView.Adapter<RecyclerAdapter.ViewHolder>(){
         val itemTitle: TextView = itemView.findViewById(R.id.tv_title)
         val itemDetail: TextView = itemView.findViewById(R.id.tv_description)
         val itemPicture: ImageView = itemView.findViewById(R.id.iv_image)
+        lateinit var itemUser: User
+        lateinit var context:Context
+
 
         init {
-            itemView.setOnClickListener{v: View ->
-                val position : Int = adapterPosition
-                Toast.makeText(itemView.context, "You Clickced on item # ${position+1}", Toast.LENGTH_SHORT).show()
+            itemView.setOnClickListener{
+                val intent = Intent(context,ProfileDisplay::class.java)
+                intent.putExtra("currUser",itemUser)
+                intent.putExtra("isMyUser",false)
+                intent.putExtra("theUrl","")
+                context.startActivity(intent)
             }
         }
+
 
     }
 
@@ -41,6 +51,8 @@ RecyclerView.Adapter<RecyclerAdapter.ViewHolder>(){
         holder.itemTitle.text = titles[position]
         holder.itemDetail.text = details[position]
         holder.itemPicture.setImageResource(images[position])
+        holder.itemUser = users[position]
+        holder.context = theContext
     }
 
 

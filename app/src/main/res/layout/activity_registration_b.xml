@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrationScreen">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="190dp"
+        android:layout_height="55dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/Register"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#000"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <!--residential area-->
+    <Spinner
+        android:id="@+id/areaSpinner"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/title"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="8dp" />
+
+    <!--    marital status -->
+    <Spinner
+        android:id="@+id/statusSpinner"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/areaSpinner"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="8dp" />
+
+    <!--    has little children-->
+    <CheckBox
+        android:id="@+id/hasChildren"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/statusSpinner"
+        android:layout_marginStart="30dp"
+        android:text="Has little Children"
+        android:layoutDirection="rtl"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!--    hobbies-->
+    <TextView
+        android:id="@+id/txtHobbies"
+        android:layout_width="230dp"
+        android:layout_height="26dp"
+        android:layout_below="@id/hasChildren"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/hobbies"
+        android:textAlignment="textStart"
+        android:textSize="18sp" />
+
+    <ScrollView
+        android:id="@+id/hobbiesScrollProfile"
+        android:layout_width="230dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/txtHobbies"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="8dp">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:id="@+id/btnHobby1"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hobby1" />
+
+                <CheckBox
+                    android:id="@+id/btnHobby2"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hobby2" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/btnHobby3"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hobby3"
+                    />
+
+                <CheckBox
+                    android:id="@+id/btnHobby4"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hobby4" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/btnHobby5"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hobby5" />
+
+                <CheckBox
+                    android:id="@+id/btnHobby6"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hobby6" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/btnHobby7"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hobby7" />
+
+                <CheckBox
+                    android:id="@+id/btnHobby8"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hobby8" />
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/canHelp"
+        android:layout_width="230dp"
+        android:layout_height="26dp"
+        android:layout_below="@id/hobbiesScrollProfile"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/canHelp"
+        android:textAlignment="textStart"
+        android:textSize="18sp" />
+
+    <ScrollView
+        android:id="@+id/helpScrollProfile"
+        android:layout_width="230dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/canHelp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="8dp">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
+
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/btnHelp1"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help1" />
+
+                <CheckBox
+                    android:id="@+id/btnHelp2"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help2" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/btnHelp3"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help3" />
+
+                <CheckBox
+                    android:id="@+id/btnHelp4"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help4" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/btnHelp5"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help5" />
+
+                <CheckBox
+                    android:id="@+id/btnHelp6"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help6" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/btnHelp7"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help7" />
+
+                <CheckBox
+                    android:id="@+id/btnHelp8"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help8" />
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+
+    <!--    last name-->
+
+
+    <!--    Phone-->
+
+
+    <!--    Origin Country-->
+
+    <!--    Language-->
+
+
+    <Button
+        android:id="@+id/btnContinue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorAccent"
+        android:onClick="btnContinueOnClick"
+        android:text="Finish"
+        android:textColor="#fff" />
+
+    <!--
+        <TextView
+            android:id="@+id/tvLogin"
+            android:onClick="loginOnClick"
+            android:layout_width="wrap_content"
+            android:text="Login"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="10dp"
+            android:layout_height="wrap_content"></TextView>-->
+
+</RelativeLayout>

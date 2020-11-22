@@ -92,12 +92,15 @@ class ProfileDisplay : AppCompatActivity() {
                 hobbyBox.isChecked = true
             }
             hobbyBox.isEnabled = false
+            //todo change color
+            hobbyBox.setTextColor(getResources().getColor(R.color.colorPrimaryDark))
             hobbyCheckBoxes.add(hobbyBox)
             if ((currUser.help and mask) == mask) {
                 helpBox.isChecked = true
             }
             if (!isMyUser) {
                 helpBox.isEnabled = false
+                helpBox.setTextColor(getResources().getColor(R.color.colorPrimaryDark))
             }
             helpCheckBoxes.add(helpBox)
             mask = mask shl 1
