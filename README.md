@@ -37,7 +37,7 @@ We implemented the multiple choice of hobbies and topics using bitwise so that e
 
 For example, assume the user Ricardo010 (password Rj1231) logins to the app. 
 
-![Home Page](images/Home Page.jpg)
+![Home Page](images/Home_Page.jpg)
 
 First of all, he can view his profile, also being able to see his hobbies and subjects he can help. 
 
