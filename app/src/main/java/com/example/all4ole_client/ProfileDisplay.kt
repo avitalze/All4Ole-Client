@@ -53,6 +53,8 @@ class ProfileDisplay : AppCompatActivity() {
         b.text = applicationContext.getString(R.string.country, currUser.originCountry)
         b = findViewById(R.id.txtArea)
         b.text = applicationContext.getString(R.string.area, currUser.residentialArea)
+        b = findViewById(R.id.txtLanguage)
+        b.text = applicationContext.getString(R.string.language, currUser.language)
         b = findViewById(R.id.txtStatus)
         var status: String? = if (currUser.maritalStatus == 1) {
             "Taken"
@@ -71,6 +73,11 @@ class ProfileDisplay : AppCompatActivity() {
         if (!isMyUser) {
             b = findViewById(R.id.txtProfile)
             b.text = applicationContext.getString(R.string.otherProfileDisplay, currUser.firstName, currUser.lastName)
+        }
+
+        if (!isMyUser) {
+            b = findViewById(R.id.txtProfile)
+            b.text = applicationContext.getString(R.string.otherProfileDisplay, currUser.firstName, currUser.language)
         }
     }
 
